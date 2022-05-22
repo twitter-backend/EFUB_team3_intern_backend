@@ -25,6 +25,11 @@ public class TweetController {
     }
 
 
+    @GetMapping("/{tweetId}")
+    public TweetGetResponseDto findTweetById(@PathVariable Long tweetId){
+        return tweetService.findById(tweetId);
+    }
+
     @PostMapping("")
     public ResponseEntity<TweetResponseDto> createTweet(@RequestBody TweetRequestDto tweetRequestDto) {
         Long tweetId= tweetService.createTweet(tweetRequestDto);
